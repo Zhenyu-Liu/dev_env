@@ -1,0 +1,112 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set ReplaceWithRegister
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+""" Action list: https://gist.github.com/matt-snider/3b51f1c56b55324e6c05ec3d93ca4679
+
+""" map <leader>f <Plug>(easymotion-s)
+""" map <leader>e <Plug>(easymotion-f)
+
+""" distraction free mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+""" terminal
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+map <leader>r <Action>(RenameElement)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>' <Action>(HighlightUsagesInFile)
+
+map <leader>a <Action>(Annotate)
+
+""" Window navigation
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <Leader>en :action EditSourceInNewWindow<CR>
+nnoremap <Leader>n :action NextWindow<CR>
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+""" Source code edit
+vnoremap < <gv
+vnoremap > >gv
+nnoremap <leader>c :action CommentByLineComment<CR>
+nnoremap <Leader>= :action ReformatCode<CR>
+nnoremap <leader>l :action RecentLocations<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+
+""" Searching
+map <leader>fo <Action>(SearchEverywhere)
+map <leader>fe <Action>(RecentFiles)
+map <leader>ff <Action>(FindInPath)
+map <leader>o <Action>(OverrideMethods)
+
+nnoremap <c-a> :action GotoAction<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gp :action GotToSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap gu :action ShowUsages<CR>
+
+""" Emulator
+""" nnoremap ,r :action ContextRun<CR>
+""" nnoremap ,c :action RunClass<CR>
+""" nnoremap ,f :action ChooseRunConfiguration<CR>
+""" nnoremap ,t :action ActivateRunToolWindow<CR>
+""" nnoremap ,u :action Rerun<CR>
+
+""" Not in use
+""" nnoremap [[ :action MethodUp<CR>
+""" nnoremap ]] :action MethodDown<CR>
+""" nnoremap zc :action CollapseRegion<CR>
+""" nnoremap zo :action ExpandRegion<CR>
+""" nnoremap <leader>zc :action CollapseAllRegions<CR>
+""" nnoremap <leader>zo :action ExpandAllRegions<CR>
+""" nnoremap <leader>b :action ShowNavBar<CR>
+""" nnoremap <c-s> :action FileStructurePopup<CR>
+""" nnoremap <c-o> :action GotoSymbol<CR>
+""" nnoremap <leader>s :action GotoRelated<CR>
+""" nnoremap <c-f> :action GotoFile<CR>
+""" nnoremap <leader>o :action OptimizeImports<CR>
+""" nnoremap <c-r> :action RecentFiles<CR>
+""" nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+""" map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
