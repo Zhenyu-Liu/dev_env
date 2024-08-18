@@ -12,9 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		dependencies = { 'nvim-lua/plenary.nvim' }
+		dependencies = { 
+            'nvim-lua/plenary.nvim',
+        },
+        extensions = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        }
 	},
 
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
