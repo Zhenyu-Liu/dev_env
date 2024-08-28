@@ -6,4 +6,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }); end)
 
+vim.keymap.set('n', '<leader>gi', builtin.lsp_definitions, {})
+vim.keymap.set('n', '<leader>gu', builtin.lsp_references, {})
+
 require('telescope').load_extension('fzf')
