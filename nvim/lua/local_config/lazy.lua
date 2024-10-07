@@ -72,4 +72,9 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons",
         }
     },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
 })
